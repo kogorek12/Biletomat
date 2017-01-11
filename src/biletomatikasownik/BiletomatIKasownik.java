@@ -22,6 +22,10 @@ public class BiletomatIKasownik {
         monety= MonetyWPamieci.wczytaj();
         System.out.println(monety.get(0.5));
         
+        // TESTY DO KARTY W PAMIECI I UZYTKOWNICY W PAMIECI
+        
+        
+        
         
         
        
