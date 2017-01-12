@@ -1,5 +1,5 @@
 
-package Uzytkownik;
+package biletomatikasownik;
 
 public enum BiletKartaTyp {
     Tygodniowy,
