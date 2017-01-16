@@ -8,10 +8,10 @@ osoba-> trudniejsza do wczytania, MYŚL, gettery. LINIJKA POD LINIJKĄ- dane
  */
 package pamiec;
 
-import Uzytkownik.BiletKartaTyp;
+import biletomatikasownik.BiletKartaTyp;
 import Uzytkownik.Karta;
 import Uzytkownik.Osoba;
-import Uzytkownik.RodzajZnizki;
+import biletomatikasownik.RodzajZnizki;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

@@ -1,6 +1,9 @@
 
 package Uzytkownik;
 
+import biletomatikasownik.BiletKartaTyp;
+import biletomatikasownik.RodzajZnizki;
+
 public class Karta {
     private int id;
     private Osoba osoba;
