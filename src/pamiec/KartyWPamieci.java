@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
-
-osoba-> trudniejsza do wczytania, MYŚL, gettery. LINIJKA POD LINIJKĄ- dane
-
- */
 package pamiec;
 
 import biletomatikasownik.BiletKartaTyp;
 import Uzytkownik.Karta;
 import Uzytkownik.Osoba;
+import biletomatikasownik.BiletNaKarcie;
 import biletomatikasownik.RodzajZnizki;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
@@ -28,8 +22,10 @@ public class KartyWPamieci {
 
             for (Object klucz : klucze) {
               zapisz.println(zbiorKart.get(klucz).getId());
-              zapisz.println(zbiorKart.get(klucz).getZnizka());
-              zapisz.println(zbiorKart.get(klucz).getTyp());
+              zapisz.println(zbiorKart.get(klucz).getBilet().getZnizka());
+              zapisz.println(zbiorKart.get(klucz).getBilet().getTyp());
+              zapisz.println(zbiorKart.get(klucz).getBilet().getDataOd().getTime());
+              zapisz.println(zbiorKart.get(klucz).getBilet().getDataDo().getTime());
               }
             zapisz.close();
         } catch (FileNotFoundException ex) {
@@ -44,6 +40,9 @@ public class KartyWPamieci {
         int id;
         RodzajZnizki znizka;
         BiletKartaTyp typ;
+        BiletNaKarcie bilet;
+        Date dataOd;
+        Date dataDo;
 
         try {
             Scanner wczytaj = new Scanner(karty);
@@ -54,7 +53,10 @@ public class KartyWPamieci {
                 Osoba ludz = osoby.get(id);
                 znizka= RodzajZnizki.valueOf(wczytaj.nextLine());
                 typ=BiletKartaTyp.valueOf(wczytaj.nextLine());
-                Karta karta = new Karta(id,ludz,znizka,typ);
+                dataOd=new Date(Long.parseLong(wczytaj.nextLine()));
+                dataDo=new Date(Long.parseLong(wczytaj.nextLine()));
+                bilet = new BiletNaKarcie(znizka, typ, dataOd, dataDo);
+                Karta karta = new Karta(ludz,bilet);
                 zbiorKart.put(id, karta);
             }
         } catch (FileNotFoundException ex) {

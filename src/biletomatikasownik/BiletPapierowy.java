@@ -2,15 +2,15 @@
 package biletomatikasownik;
 
 public class BiletPapierowy {
-    private double cena;
+    private int cena;
     private RodzajZnizki typ;
 
     public BiletPapierowy(RodzajZnizki typ) {
         this.typ = typ;
         if(this.typ.equals(RodzajZnizki.Normalny))
-            this.cena=3.3;
+            this.cena=330;
         else
-            this.cena=1.8;
+            this.cena=180;
         }
 
     public double getCena() {

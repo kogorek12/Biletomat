@@ -29,20 +29,22 @@ public class MonetyWPamieci {
 
     public static HashMap wczytaj() {
         File monety = new File("monety.txt");
-        HashMap<Double, Integer> pieniadze = new HashMap();
-        double klucz;
-        int ilosc;
+        HashMap<Integer, Integer> pieniadze = new HashMap();
+        int klucz=0;
+        int ilosc=0;
         String linia;
         try {
             Scanner wczytaj = new Scanner(monety);
 
             while (wczytaj.hasNextLine()) {
                 linia = wczytaj.nextLine();
-                klucz = Double.parseDouble(linia.substring(0, 3));
-                ilosc = Integer.parseInt(linia.substring(4));
-
+                int gdzie = linia.indexOf(":");
+                klucz = Integer.parseInt(linia.substring(0, gdzie));
+                ilosc = Integer.parseInt(linia.substring(gdzie+1));
                 pieniadze.put(klucz, ilosc);
-            }
+                }
+                
+            
         } catch (FileNotFoundException ex) {
             ex.getMessage();
         }
@@ -50,3 +52,4 @@ public class MonetyWPamieci {
 
     }
 }
+ 

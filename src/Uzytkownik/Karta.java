@@ -2,19 +2,20 @@
 package Uzytkownik;
 
 import biletomatikasownik.BiletKartaTyp;
+import biletomatikasownik.BiletNaKarcie;
 import biletomatikasownik.RodzajZnizki;
 
 public class Karta {
     private int id;
     private Osoba osoba;
-    private RodzajZnizki znizka;
-    private BiletKartaTyp typ;
+    private BiletNaKarcie bilet;
+   
+   
 
-    public Karta(int id, Osoba osoba, RodzajZnizki znizka, BiletKartaTyp typ) {
-        this.id = id;
+    public Karta(Osoba osoba,BiletNaKarcie bilet ) {
+        this.id = osoba.getPESEL();
         this.osoba = osoba;
-        this.znizka = znizka;
-        this.typ = typ;
+        this.bilet = bilet;
     }
 
     public int getId() {
@@ -25,15 +26,11 @@ public class Karta {
         return osoba;
     }
 
-    public RodzajZnizki getZnizka() {
-        return znizka;
+    public BiletNaKarcie getBilet() {
+        return bilet;
     }
 
-    public BiletKartaTyp getTyp() {
-        return typ;
-    }
-    
-    
+   
     
     
 }

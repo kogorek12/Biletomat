@@ -34,10 +34,10 @@ public class Panel extends JPanel {
         waznoscBiletu.setLayout(null);
         JLabel etykieta1 = new JLabel("SPRAWDŹ");
         Dimension wym1 = etykieta1.getPreferredSize();
-        System.out.println(wym1.width);
+        //System.out.println(wym1.width);
         JLabel etykieta2 = new JLabel("WAŻNOŚĆ BILETU");
         Dimension wym2 = etykieta2.getPreferredSize();
-        System.out.println(wym2.width);
+        //System.out.println(wym2.width);
         etykieta1.setFont(new Font("Cambria", Font.PLAIN, 27));
         etykieta2.setFont(new Font("Cambria", Font.PLAIN, 27));
         int przerwaMiedzyEtykietami = (150 - 38 - 38) / 3;
