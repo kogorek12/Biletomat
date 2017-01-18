@@ -8,11 +8,16 @@ public class BiletNaKarcie {
     private Date dataOd;
     private Date dataDo;
 
-    public BiletNaKarcie(RodzajZnizki znizka, BiletKartaTyp typ, Date dataOd, Date dataDo) {
+    public BiletNaKarcie(RodzajZnizki znizka, BiletKartaTyp typ, Date dataOd) {
         this.znizka = znizka;
         this.typ = typ;
         this.dataOd = dataOd;
-        this.dataDo = dataDo;
+        if(this.typ.equals(BiletKartaTyp.Miesieczny))
+        this.dataDo = new Date(dataOd.getTime()+Long.parseLong("2592000000"));
+        if(this.typ.equals(BiletKartaTyp.TrzyMiesieczny))
+        this.dataDo = new Date(dataOd.getTime()+Long.parseLong("7776000000"));
+        if(this.typ.equals(BiletKartaTyp.Tygodniowy))
+        this.dataDo = new Date(dataOd.getTime()+Long.parseLong("604800000"));
     }
 
     public RodzajZnizki getZnizka() {

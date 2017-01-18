@@ -1,12 +1,10 @@
 
 package Uzytkownik;
 
-import biletomatikasownik.BiletKartaTyp;
 import biletomatikasownik.BiletNaKarcie;
-import biletomatikasownik.RodzajZnizki;
 
 public class Karta {
-    private int id;
+    private long id;
     private Osoba osoba;
     private BiletNaKarcie bilet;
    
@@ -18,7 +16,7 @@ public class Karta {
         this.bilet = bilet;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

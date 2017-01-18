@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class UzytkownicyWPamieci {
     
-    public static void zapisz(HashMap<Integer, Osoba> uzytkownicy) {
+    public static void zapisz(HashMap<Long, Osoba> uzytkownicy) {
         File osoby = new File("osoby.txt");
         Set klucze = uzytkownicy.keySet();
         try {
@@ -32,17 +32,17 @@ public class UzytkownicyWPamieci {
     public static HashMap wczytaj() {
         
         File osoby = new File("osoby.txt");
-        HashMap<Integer, Osoba> uzytkownicy = new HashMap();
+        HashMap<Long, Osoba> uzytkownicy = new HashMap();
         String imie;
         String nazwisko;
-        int pesel;
+        long pesel;
         try {
             Scanner wczytaj = new Scanner(osoby);
 
             while (wczytaj.hasNextLine()) {
                 imie=wczytaj.nextLine();
                 nazwisko=wczytaj.nextLine();
-                pesel=wczytaj.nextInt();
+                pesel=Long.parseLong(wczytaj.nextLine());
                 
                 Osoba ludz= new Osoba(imie, nazwisko, pesel);
                 uzytkownicy.put(pesel, ludz);

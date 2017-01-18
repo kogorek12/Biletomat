@@ -14,8 +14,8 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class KartyWPamieci {
-    public static void zapisz(HashMap<Integer, Karta> zbiorKart) {
-        File karty = new File("karta.txt");
+    public static void zapisz(HashMap<Long, Karta> zbiorKart) {
+        File karty = new File("karty.txt");
         Set klucze = zbiorKart.keySet();
         try {
             PrintWriter zapisz = new PrintWriter(karty);
@@ -25,7 +25,6 @@ public class KartyWPamieci {
               zapisz.println(zbiorKart.get(klucz).getBilet().getZnizka());
               zapisz.println(zbiorKart.get(klucz).getBilet().getTyp());
               zapisz.println(zbiorKart.get(klucz).getBilet().getDataOd().getTime());
-              zapisz.println(zbiorKart.get(klucz).getBilet().getDataDo().getTime());
               }
             zapisz.close();
         } catch (FileNotFoundException ex) {
@@ -35,7 +34,7 @@ public class KartyWPamieci {
     }
 
     public static HashMap wczytaj() {
-        File karty = new File("karta.txt");
+        File karty = new File("karty.txt");
         HashMap<Integer, Karta> zbiorKart = new HashMap();
         int id;
         RodzajZnizki znizka;
@@ -54,8 +53,7 @@ public class KartyWPamieci {
                 znizka= RodzajZnizki.valueOf(wczytaj.nextLine());
                 typ=BiletKartaTyp.valueOf(wczytaj.nextLine());
                 dataOd=new Date(Long.parseLong(wczytaj.nextLine()));
-                dataDo=new Date(Long.parseLong(wczytaj.nextLine()));
-                bilet = new BiletNaKarcie(znizka, typ, dataOd, dataDo);
+                bilet = new BiletNaKarcie(znizka, typ, dataOd);
                 Karta karta = new Karta(ludz,bilet);
                 zbiorKart.put(id, karta);
             }

@@ -3,9 +3,9 @@ package Uzytkownik;
 public class Osoba {
     private String imie;
     private String nazwisko;
-    private int PESEL;
+    private long PESEL;
 
-    public Osoba(String imie, String nazwisko, int PESEL) {
+    public Osoba(String imie, String nazwisko, long PESEL) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.PESEL = PESEL;
@@ -19,7 +19,7 @@ public class Osoba {
         return nazwisko;
     }
 
-    public int getPESEL() {
+    public long getPESEL() {
         return PESEL;
     }
     
