@@ -44,9 +44,13 @@ public class PrzyciskiDoAktualizacjiPanelu extends JButton implements ActionList
             else if(this.nazwaPrzycisku.equals("SKASUJ BILET")){
                 this.aktualizowanyPanel.wygladPoWcisnieciuSkasujBilet();
             }
-            else{
+            else if(this.nazwaPrzycisku.equals("")){
                 this.aktualizowanyPanel.wygladPoWcisnieciuSprawdzWaznoscBiletu();
             }
+            else if(this.nazwaPrzycisku.equals("WRÓĆ")){
+                this.aktualizowanyPanel.wlasciwosciEkranuStartowego();
+            }
+            
             this.aktualizowanyPanel.repaint();
         }
       

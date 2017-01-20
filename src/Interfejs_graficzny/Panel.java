@@ -4,8 +4,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Panel extends JPanel {
 
@@ -18,6 +20,10 @@ public class Panel extends JPanel {
     }
 
     public void wlasciwosciEkranuStartowego() {
+        PanelZLinia linia = new PanelZLinia();
+        this.add(linia);
+        linia.setVisible(true);
+        Dimension wielkosc = linia.getPreferredSize();
         this.setVisible(true);
         this.setBackground(new Color(93, 155, 155, 255));
         this.setLayout(null);
@@ -50,38 +56,51 @@ public class Panel extends JPanel {
     }
 
   
-
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Color kolorPoprzedni = g.getColor();
-        g.setColor(Color.black);
-        for (int i = -1; i < 2; i++) {
-
-            g.drawLine((SZEROKOSC / 2) + i, WYSOKOSC - 550, (SZEROKOSC / 2) + i, WYSOKOSC - 80);
-
-        }
-        g.setColor(kolorPoprzedni);
-    }
-
     void wygladPoWcisnieciuKupBilet() {
         this.setVisible(true);
         this.setBackground(new Color(93, 155, 155, 255));
+        JLabel bilet_jednorazowy = new JLabel("BILET JEDNORAZOWY");
+        bilet_jednorazowy.setFont(new Font("Cambria", Font.PLAIN, 50));
+        Dimension wymiar = bilet_jednorazowy.getPreferredSize();
+        bilet_jednorazowy.setBounds((900-wymiar.width)/2, 50, wymiar.width, wymiar.height);
+        this.add(bilet_jednorazowy);
+        PrzyciskiDoAktualizacjiPanelu ulgowy = new PrzyciskiDoAktualizacjiPanelu("ULGOWY - 1,80 zł", this);
+        ulgowy.setBounds(300, 200, 300, 120);
+        this.add(ulgowy);
+        PrzyciskiDoAktualizacjiPanelu normalny = new PrzyciskiDoAktualizacjiPanelu("NORMALNY - 3,30 zł", this);
+        normalny.setBounds(300, 350, 300, 120);
+        this.add(normalny);
+        PrzyciskiDoAktualizacjiPanelu wroc = new PrzyciskiDoAktualizacjiPanelu("WRÓĆ", this);
+        wroc.setBounds(50, 480, 120, 60);
+        wroc.setFont(new Font("Cambria", Font.PLAIN, 20));
+        this.add(wroc);
     }
 
     void wygladPoWcisnieciuDoladujKarte() {
         this.setVisible(true);
         this.setBackground(new Color(93, 155, 155, 255));
+        PrzyciskiDoAktualizacjiPanelu wroc = new PrzyciskiDoAktualizacjiPanelu("WRÓĆ", this);
+        wroc.setBounds(50, 480, 120, 60);
+        wroc.setFont(new Font("Cambria", Font.PLAIN, 20));
+        this.add(wroc);
     }
 
     void wygladPoWcisnieciuSkasujBilet() {
         this.setVisible(true);
         this.setBackground(new Color(93, 155, 155, 255));
+        PrzyciskiDoAktualizacjiPanelu wroc = new PrzyciskiDoAktualizacjiPanelu("WRÓĆ", this);
+        wroc.setBounds(50, 480, 120, 60);
+        wroc.setFont(new Font("Cambria", Font.PLAIN, 20));
+        this.add(wroc);
     }
 
     void wygladPoWcisnieciuSprawdzWaznoscBiletu() {
         this.setVisible(true);
         this.setBackground(new Color(93, 155, 155, 255));
+        PrzyciskiDoAktualizacjiPanelu wroc = new PrzyciskiDoAktualizacjiPanelu("WRÓĆ", this);
+        wroc.setBounds(50, 480, 120, 60);
+        wroc.setFont(new Font("Cambria", Font.PLAIN, 20));
+        this.add(wroc);
     }
 
 }
