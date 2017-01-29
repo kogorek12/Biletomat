@@ -13,11 +13,11 @@ public class BiletNaKarcie {
         this.typ = typ;
         this.dataOd = dataOd;
         if(this.typ.equals(BiletKartaTyp.Miesieczny))
-        this.dataDo = new Date(dataOd.getTime()+Long.parseLong("2592000000"));
+        this.dataDo = new Date(dataOd.getTime()+Long.parseLong("2592000"));
         if(this.typ.equals(BiletKartaTyp.TrzyMiesieczny))
-        this.dataDo = new Date(dataOd.getTime()+Long.parseLong("7776000000"));
+        this.dataDo = new Date(dataOd.getTime()+Long.parseLong("7776000"));
         if(this.typ.equals(BiletKartaTyp.Tygodniowy))
-        this.dataDo = new Date(dataOd.getTime()+Long.parseLong("604800000"));
+        this.dataDo = new Date(dataOd.getTime()+Long.parseLong("604800"));
     }
 
     public RodzajZnizki getZnizka() {
