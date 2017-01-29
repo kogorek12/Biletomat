@@ -68,7 +68,7 @@ public class ZarzadzaniePieniedzmi {
                     moneta = maximum(klucze);
                     if (moneta <= reszta && this.pieniadze.get(moneta) != 0) {
                         reszta = reszta - moneta;
-                        System.out.println(reszta);
+                       // System.out.println(reszta);
                         ile = this.pieniadze.get(moneta);
                         ile--;
                         this.pieniadze.replace(moneta, ile);
