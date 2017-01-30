@@ -13,10 +13,7 @@ public class BiletomatIKasownik {
 
     public static void main(String[] args) {
         
-        UstawFabrycznie ustawianie_poczatkowe = new UstawFabrycznie();
-        ustawianie_poczatkowe.ustawUzytkownikow();
-        ustawianie_poczatkowe.ustawMonetyDoBiletomatu();
-        ustawianie_poczatkowe.ustawKarty();
+
 
         new Biletomat_frame(Biletomat_frame.NAZWA_FRAME);
         
@@ -42,19 +39,19 @@ public class BiletomatIKasownik {
       
         
          */
-        // ZarzadzaniePieniedzmi zarzadzaniePieniedzmi = new ZarzadzaniePieniedzmi(MonetyWPamieci.wczytaj());
-        //MonetyWPamieci.zapisz(zarzadzaniePieniedzmi.wydawankoResztki(10, 1000));
+         ZarzadzaniePieniedzmi zarzadzaniePieniedzmi = new ZarzadzaniePieniedzmi(MonetyWPamieci.wczytaj());
+        MonetyWPamieci.zapisz(zarzadzaniePieniedzmi.wydawankoResztki(10, 1000));
 
-        // MonetyWPamieci.zapisz(zarzadzaniePieniedzmi.przyjmowaniePieniedzy(500));
+         MonetyWPamieci.zapisz(zarzadzaniePieniedzmi.przyjmowaniePieniedzy(500));
         
-//        HashMap<Long, Osoba> uzytkownicy = UzytkownicyWPamieci.wczytaj();
-//        HashMap<Long, Karta> karty = new HashMap();
-//        Osoba uzytkownik = uzytkownicy.get(Long.parseLong("72040615261"));
-//        BiletNaKarcie bilet = new BiletNaKarcie(RodzajZnizki.Normalny, BiletKartaTyp.Tygodniowy, new Date());
-//        Karta karta = new Karta(uzytkownik, bilet);
-//        karty.put(karta.getId(), karta);
-//        System.out.println(karta.getBilet().getDataDo());
-//        KartyWPamieci.zapisz(karty);
+        HashMap<Long, Osoba> uzytkownicy = UzytkownicyWPamieci.wczytaj();
+        HashMap<Long, Karta> karty = new HashMap();
+        Osoba uzytkownik = uzytkownicy.get(Long.parseLong("72040615261"));
+        BiletNaKarcie bilet = new BiletNaKarcie(RodzajZnizki.Normalny, BiletKartaTyp.Tygodniowy, new Date());
+        Karta karta = new Karta(uzytkownik, bilet);
+        karty.put(karta.getId(), karta);
+        System.out.println(karta.getBilet().getDataDo());
+        KartyWPamieci.zapisz(karty);
 
     }
 
